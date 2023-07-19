@@ -1,17 +1,26 @@
-{%extends 'base.html'  %} 
+{% extends 'base.html' %}
+
 {% block content %}
-  <h1>This Is Nagaveni</h1>
-  <h3>page loaded successfully</h3>
+  <h1>Hello World</h1>
+  <h3>Page loaded successfully</h3>
   <br/>
-  {% for post in veni %}
-    <ul>
-      <li>
-        <p title="technology"></p>
-        <img src="{{post.image_url}}"alt="image"style="height:60 ; width:60";>
-        {{post.image_url}}</li><br/>
-    </ul>
-  {% endfor %}
-  
-
-
+  <div class="row">
+    {%if veni %}
+    {% for post in veni %}
+      <div class="card" style="width: 16rem; padding:5px; margin:5px;">
+        <img height="200" width="200" src="{{post.image_url}}" class="card-img-top" alt="Post Image">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.story|slice:"0:50"}}...</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{post.created_at}}</small>
+        </div>
+      </div>
+    {% endfor %}
+    {% else %}
+    <h2 class="text-muted">No Post
+    {% endif %}
+  </div>
 {% endblock %}
