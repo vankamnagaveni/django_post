@@ -1,0 +1,17 @@
+{%extends 'base.html'  %} 
+{% block content %}
+  <h1>This Is Nagaveni</h1>
+  <h3>page loaded successfully</h3>
+  <br/>
+  {% for post in veni %}
+    <ul>
+      <li>
+        <p title="technology"></p>
+        <img src="{{post.image_url}}"alt="image"style="height:60 ; width:60";>
+        {{post.image_url}}</li><br/>
+    </ul>
+  {% endfor %}
+  
+
+
+{% endblock %}
